@@ -1,5 +1,6 @@
 <?php
 
+use App\Jobs\UserMailJob;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/abcd', function () {
+    UserMailJob::dispatch('Asante', 'fostersnt@gmail.com');
+    return 'success';
+    return view('user_mail');
 });
