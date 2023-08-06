@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileUploadController;
 use App\Jobs\UserMailJob;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,9 @@ Route::get('/abcd', function () {
     UserMailJob::dispatch('Asante', 'fostersnt@gmail.com');
     return 'success';
     return view('user_mail');
+});
+
+Route::prefix('admin')->group(function(){
+    Route::get('/', [FileUploadController::class,'index'])->name('admin.index');
+    Route::post('file/upload', [FileUploadController::class, 'fileUpload'])->name('file.upload');
 });

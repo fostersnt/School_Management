@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ExcelFileReading extends Model
+class UserData extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'file_description',
-        'file_path'
+        'name',
+        'age',
+        'country'
     ];
 }
